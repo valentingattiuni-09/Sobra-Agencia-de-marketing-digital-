@@ -1,0 +1,9 @@
+PALETA DE COLOR - PACO ORTEGA / OBI (Manual de marca v2, septiembre 2026)
+==========================================================================
+
+Blanco               #FFFFFF   RGB 255, 255, 255   (80% orientativo)
+Niebla               #F4F4F2   RGB 244, 244, 242   (10% orientativo)
+Grafito              #282828   RGB  40,  40,  40   (7% orientativo)
+Terracota            #C96340   RGB 201,  99,  64   (3% orientativo)
+Terracota profundo   #A7462C   RGB 167,  70,  44   (textos pequeños sobre blanco)
+Negro                #000000   RGB   0,   0,   0   (alternativa de producción a una tinta)

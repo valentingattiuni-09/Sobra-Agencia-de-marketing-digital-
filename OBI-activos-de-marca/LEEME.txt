@@ -1,0 +1,37 @@
+ACTIVOS DE MARCA — PACO ORTEGA / OSTEOPATÍA BIOINTEGRATIVA · OBI
+Extraídos del Manual de Marca v2 (septiembre 2026)
+================================================================
+
+LOGOS Y FIRMAS (fondo transparente, reconstruidos/rasterizados del vector del PDF)
+  01_firma-completa.png ........... Firma principal: PACO ORTEGA + descriptor + línea terracota (3344×785)
+  02_nombre-paco-ortega.png ....... Versión reducida, solo nombre (3064×423)
+  03_sello-obi.png ................ Sello obi: lettering a medida dentro del arco (1712×1558)
+  04_indumentaria-vertical.png .... OSTEOPATÍA BIOINTEGRATIVA + obi, composición vertical (1329×665)
+                                    * Reconstruido en vectorial (Liberation Sans, métrica Arial;
+                                      lettering obi copiado de los trazados originales del sello)
+
+LOGO HISTÓRICO (imágenes embebidas, extraídas en su máxima calidad; con fondo, tal como
+figuran en el PDF — el manual indica que no existen versiones transparentes de origen)
+  05_logo-historico-multicolor.png ......... 1588×1587
+  06_logo-historico-negro-sobre-blanco.png . 1254×1254
+  07_logo-historico-blanco-sobre-negro.png . 1254×1254
+
+INSTAGRAM
+  08_avatar-instagram.png ......... Avatar tipográfico temporal, 1080×1080, centrado (seguro para recorte circular)
+  09–16_destacado-*.png ........... 8 iconos de destacados, 1080×1080, icono centrado en recorte circular
+  iconos-fondo-transparente/ ...... Los mismos 8 iconos con el fondo quitado (solo trazos), por si
+                                    se necesitan sobre otros fondos
+
+RECURSO GRÁFICO (fondo transparente)
+  17_arco-abierto-grafito.png ..... 1773×1609
+  17_arco-abierto-terracota.png ... 1773×1609 (versión original del manual)
+
+PALETA
+  18_paleta-muestra.png ........... Muestra visual 1080 px
+  18_paleta-hex.txt ............... Valores HEX y RGB
+
+NOTAS TÉCNICAS
+  · Transparencia obtenida por separación matemática del blanco según los colores de
+    marca (#282828 grafito / #C96340 terracota), bordes antialiasados limpios.
+  · Tipografía de trabajo del manual: Arial (Narrow Bold títulos, Bold firma, Regular lectura).
+  · Los mínimos de reproducción del manual: firma completa 320 px, solo nombre 140 px, sello 32 px.
