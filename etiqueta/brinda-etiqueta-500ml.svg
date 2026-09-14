@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="213mm" height="84mm" viewBox="0 0 213 84" font-family="Inter, sans-serif">
+  <!-- ============================================================
+       ETIQUETA ENVOLVENTE BRINDA — BOTELLA PET 500 ml (Bot T28 0.50)
+       Documento: 213 x 84 mm  (1 unidad = 1 mm)
+       Corte:     207 x 84 mm  (sangrado 3 mm por lado: x = 3 a 210)
+       Área segura: 204 x 84 mm
+       Tipografías: Quicksand (marca), Inter (cuerpo), Dancing Script (script)
+       Paleta: #00C6E6 / #00D1B2 / #A7F3E5 / #FFD54D / #001B2A
+       ============================================================ -->
+  <defs>
+    <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#DFF6FC"/>
+      <stop offset="0.55" stop-color="#F4FCFE"/>
+      <stop offset="1" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <linearGradient id="splash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00C6E6"/>
+      <stop offset="1" stop-color="#7FE3F2"/>
+    </linearGradient>
+    <linearGradient id="scriptAzul" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0099CE"/>
+      <stop offset="1" stop-color="#006DA8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ================= FONDO ================= -->
+  <g id="fondo">
+    <rect width="213" height="84" fill="url(#cielo)"/>
+    <!-- olas de agua (los extremos empalman a la misma altura para la junta del envolvente) -->
+    <path d="M0,62 C 28,56 58,68 90,62 C 122,56 152,68 182,62 C 196,59.5 205,64 213,62 L213,84 L0,84 Z"
+          fill="#A7F3E5" opacity="0.55"/>
+    <path d="M0,70 C 36,64 72,76 108,70 C 144,64 180,76 213,70 L213,84 L0,84 Z"
+          fill="#5FD9EC" opacity="0.55"/>
+    <path d="M0,77 C 44,72.5 96,81.5 152,77 C 178,75 198,79 213,77 L213,84 L0,84 Z"
+          fill="#00C6E6" opacity="0.9"/>
+    <!-- burbujas -->
+    <g fill="#FFFFFF">
+      <circle cx="34" cy="66" r="1.1" opacity="0.7"/>
+      <circle cx="40" cy="71" r="0.7" opacity="0.6"/>
+      <circle cx="98" cy="74" r="0.9" opacity="0.5"/>
+      <circle cx="160" cy="72" r="0.8" opacity="0.6"/>
+      <circle cx="186" cy="79" r="1.2" opacity="0.5"/>
+      <circle cx="70" cy="79" r="0.9" opacity="0.5"/>
+    </g>
+    <g fill="#00C6E6">
+      <circle cx="30" cy="12" r="0.9" opacity="0.35"/>
+      <circle cx="26" cy="18" r="0.6" opacity="0.3"/>
+      <circle cx="90" cy="8" r="0.8" opacity="0.3"/>
+    </g>
+    <!-- salpicadura izquierda -->
+    <g id="salpicadura">
+      <path d="M2,84 C 12,62 5,46 14,31 C 19,22.5 16,13 8,7
+               C 19,11.5 26.5,21 22.5,32.5 C 29.5,45 21,60 27,84 Z"
+            fill="url(#splash)" opacity="0.75"/>
+      <path d="M10,84 C 17,66 12,52 19,40 C 23,33 21.5,26 17,21
+               C 25,25.5 29,34 25.5,42.5 C 31,54 25,68 31.5,84 Z"
+            fill="#8FE7F4" opacity="0.6"/>
+      <circle cx="12" cy="14" r="1.5" fill="#00C6E6" opacity="0.6"/>
+      <circle cx="24" cy="9" r="1.0" fill="#7FE3F2" opacity="0.8"/>
+      <circle cx="18" cy="4.5" r="0.7" fill="#00C6E6" opacity="0.5"/>
+      <circle cx="30" cy="26" r="0.9" fill="#FFFFFF" opacity="0.8"/>
+      <circle cx="8" cy="38" r="0.8" fill="#FFFFFF" opacity="0.7"/>
+    </g>
+    <!-- montañas sector derecho -->
+    <g id="montanas">
+      <path d="M148,62 L165,20 L174,33 L187,12 L199,30 L206,22 L213,30 L213,62 Z"
+            fill="#7ECFE0" opacity="0.9"/>
+      <path d="M161.5,28.6 L165,20 L168.4,25 L166.8,26.6 L165,24.5 L163.4,27.4 Z" fill="#FFFFFF"/>
+      <path d="M183.4,17.8 L187,12 L190.6,17.4 L189,19 L187,16.5 L185.2,19.4 Z" fill="#FFFFFF"/>
+      <path d="M203.2,25.4 L206,22 L208.8,25.2 L207.4,26.4 L206,25 L204.6,26.8 Z" fill="#FFFFFF"/>
+      <path d="M148,62 L160,42 L171,55 L183,38 L196,54 L204,46 L213,53 L213,62 Z"
+            fill="#A7F3E5"/>
+    </g>
+  </g>
+
+  <!-- ================= PANEL FRENTE ================= -->
+  <g id="frente">
+    <!-- sol -->
+    <g id="sol" transform="translate(80,13)">
+      <g fill="#FFD54D">
+        <g id="rayos">
+          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z"/>
+          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z" transform="rotate(30)"/>
+          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z" transform="rotate(60)"/>
+          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z" transform="rotate(90)"/>
+          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z" transform="rotate(120)"/>
+          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z" transform="rotate(150)"/>
+          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z" transform="rotate(180)"/>
+          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z" transform="rotate(210)"/>
+          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z" transform="rotate(240)"/>
+          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z" transform="rotate(270)"/>
+          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z" transform="rotate(300)"/>
+          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z" transform="rotate(330)"/>
+        </g>
+        <circle r="5"/>
+      </g>
+      <circle r="3.4" fill="#FFE18A"/>
+    </g>
+
+    <!-- isotipo Brinda (vector oficial, recoloreado a paleta etiqueta) -->
+    <g id="isotipo" transform="translate(41.5,8) scale(0.0625)">
+      <path fill="#00C6E6" d="M 0,0 H 55 C 110,0 150,33 150,77 C 150,119 116,147 72,150 C 116,153 150,181 150,223 C 150,267 110,300 55,300 H 0 Z"/>
+      <path fill="#A7F3E5" transform="translate(336.0,0) scale(-1,1)" d="M 0,0 H 55 C 110,0 150,33 150,77 C 150,119 116,147 72,150 C 116,153 150,181 150,223 C 150,267 110,300 55,300 H 0 Z"/>
+      <path fill="#FFD54D" d="M 168.0,86 C 172.8,127.6 184.8,143.6 216.0,150 C 184.8,156.4 172.8,172.4 168.0,214 C 163.2,172.4 151.2,156.4 120.0,150 C 151.2,143.6 163.2,127.6 168.0,86 Z"/>
+    </g>
+
+    <!-- marca -->
+    <text x="52" y="40.5" font-family="Quicksand" font-weight="700" font-size="12.5"
+          fill="#001B2A" text-anchor="middle" letter-spacing="-0.35">Brinda</text>
+    <text x="52" y="45.4" font-family="Quicksand" font-weight="600" font-size="2.25"
+          fill="#00A9C9" text-anchor="middle" letter-spacing="0.62">PUBLICIDAD QUE REGALA</text>
+
+    <!-- claim script -->
+    <text x="52" y="58.5" font-family="'Dancing Script'" font-weight="700" font-size="10"
+          fill="url(#scriptAzul)" text-anchor="middle">Agua</text>
+    <text x="52" y="67.5" font-family="'Dancing Script'" font-weight="700" font-size="8"
+          fill="url(#scriptAzul)" text-anchor="middle">que nos une</text>
+
+    <!-- contenido neto frente -->
+    <text x="12" y="75.5" font-family="Quicksand" font-weight="700" font-size="5"
+          fill="#001B2A">500 ml</text>
+
+    <!-- industria argentina -->
+    <g id="origen-frente">
+      <text x="84.5" y="72.6" font-size="1.8" font-weight="600" fill="#001B2A" text-anchor="end">INDUSTRIA</text>
+      <text x="84.5" y="75" font-size="1.8" font-weight="600" fill="#001B2A" text-anchor="end">ARGENTINA</text>
+      <g transform="translate(86.5,70.2)">
+        <rect width="7.6" height="4.7" rx="0.5" fill="#FFFFFF" stroke="#C9E8F2" stroke-width="0.15"/>
+        <path d="M0.5,0 H7.1 A0.5,0.5 0 0 1 7.6,0.5 V1.57 H0 V0.5 A0.5,0.5 0 0 1 0.5,0 Z" fill="#74ACDF"/>
+        <path d="M0,3.13 H7.6 V4.2 A0.5,0.5 0 0 1 7.1,4.7 H0.5 A0.5,0.5 0 0 1 0,4.2 Z" fill="#74ACDF"/>
+        <circle cx="3.8" cy="2.35" r="0.62" fill="#F6B40E"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- ================= PANEL LEGAL (DORSO) ================= -->
+  <g id="panel-legal">
+    <rect x="98.5" y="3.5" width="56" height="77" rx="3" fill="#FFFFFF" opacity="0.85"/>
+    <g fill="#001B2A">
+      <text x="101.5" y="9" font-size="2.4" font-weight="700">AGUA POTABILIZADA</text>
+      <text x="101.5" y="12.2" font-size="2.4" font-weight="700">AGUA DE MESA</text>
+
+      <text x="101.5" y="16.8" font-size="2.1">Contenido neto: <tspan font-weight="700" font-size="2.4">500 ml</tspan></text>
+
+      <text x="101.5" y="21.4" font-size="2" font-weight="600">Elaborado y fraccionado por:</text>
+      <text x="101.5" y="24" font-size="1.9">[Razón Social del Fraccionador]</text>
+      <text x="101.5" y="26.6" font-size="1.9">[Domicilio completo – Localidad – Provincia]</text>
+      <text x="101.5" y="29.8" font-size="2"><tspan font-weight="700">RNE N°:</tspan> [XX-XXXXXXXX]</text>
+      <text x="101.5" y="32.4" font-size="2"><tspan font-weight="700">RNPA N°:</tspan> [XX-XXXXXXXX]</text>
+
+      <text x="101.5" y="36.8" font-size="2" font-weight="600">Composición química (mg/l):</text>
+      <text x="101.5" y="39.4" font-size="1.8">Sodio: [XX] · Calcio: [XX] · Magnesio: [XX]</text>
+      <text x="101.5" y="41.8" font-size="1.8">Bicarbonatos: [XX] · Cloruros: [XX] · Sulfatos: [XX]</text>
+      <text x="101.5" y="44.2" font-size="1.8">Residuo seco a 180 °C: [XX] mg/l</text>
+
+      <text x="101.5" y="47.8" font-size="1.9">Conservar en lugar fresco, seco y alejado</text>
+      <text x="101.5" y="50.2" font-size="1.9">de la luz solar.</text>
+      <text x="101.5" y="53" font-size="1.9">Consumir preferentemente antes de:</text>
+      <text x="101.5" y="55.4" font-size="1.9">[DD/MM/AAAA] — <tspan font-weight="600">Lote:</tspan> [XXXXXX]</text>
+    </g>
+
+    <!-- banda promocional -->
+    <rect x="101" y="57.8" width="51" height="7.8" rx="1.6" fill="#00C6E6"/>
+    <text x="126.5" y="61.3" font-size="1.85" font-weight="700" fill="#FFFFFF" text-anchor="middle">PRODUCTO PROMOCIONAL – PROHIBIDA SU VENTA</text>
+    <text x="126.5" y="64.1" font-size="1.8" font-weight="500" fill="#FFFFFF" text-anchor="middle">Muestra sin valor comercial</text>
+
+    <!-- iconos ambientales / origen -->
+    <g id="iconos-legal" fill="#001B2A">
+      <!-- reciclable -->
+      <text x="109" y="74.4" font-size="6" text-anchor="middle" font-family="'DejaVu Sans'">&#9851;</text>
+      <text x="109" y="77.6" font-size="1.5" font-weight="600" text-anchor="middle">PET RECICLABLE</text>
+      <!-- cuidemos el ambiente (figura + cesto) -->
+      <g transform="translate(126.5,68)" stroke="#001B2A" stroke-width="0.45" fill="none" stroke-linecap="round">
+        <circle cx="-1.6" cy="0.8" r="0.85" fill="#001B2A" stroke="none"/>
+        <path d="M-1.5,1.7 C -0.9,2.6 0.3,3.2 1.2,3.4"/>
+        <path d="M-1.7,1.7 L-2.1,4.6 L-2.9,6.6"/>
+        <path d="M-2.1,4.4 L-1,6.6"/>
+        <rect x="1.4" y="3.1" width="2.1" height="2.9" rx="0.3"/>
+        <line x1="1.1" y1="3.1" x2="3.8" y2="3.1"/>
+      </g>
+      <text x="126.5" y="77.6" font-size="1.5" font-weight="600" text-anchor="middle">Cuidemos juntos</text>
+      <text x="126.5" y="79.5" font-size="1.5" font-weight="600" text-anchor="middle">el ambiente</text>
+      <!-- bandera -->
+      <g transform="translate(140,68.6)">
+        <rect width="8" height="4.9" rx="0.5" fill="#FFFFFF" stroke="#C9E8F2" stroke-width="0.15"/>
+        <path d="M0.5,0 H7.5 A0.5,0.5 0 0 1 8,0.5 V1.63 H0 V0.5 A0.5,0.5 0 0 1 0.5,0 Z" fill="#74ACDF"/>
+        <path d="M0,3.27 H8 V4.4 A0.5,0.5 0 0 1 7.5,4.9 H0.5 A0.5,0.5 0 0 1 0,4.4 Z" fill="#74ACDF"/>
+        <circle cx="4" cy="2.45" r="0.65" fill="#F6B40E"/>
+      </g>
+      <text x="144" y="77.6" font-size="1.5" font-weight="600" text-anchor="middle">INDUSTRIA ARGENTINA</text>
+    </g>
+  </g>
+
+  <!-- ================= ZONA DERECHA ================= -->
+  <g id="zona-derecha">
+    <rect x="155.5" y="21" width="36" height="38" rx="2.4" fill="#FFFFFF" opacity="0.72"/>
+    <g fill="#001B2A" font-size="3.1" font-weight="600">
+      <text x="158.5" y="26.6">“Argentina</text>
+      <text x="158.5" y="30.9">nos da agua</text>
+      <text x="158.5" y="35.2">y nosotros</text>
+      <text x="158.5" y="39.5">la compartimos.”</text>
+    </g>
+    <!-- mini logo horizontal -->
+    <g id="mini-logo" transform="translate(158,48.5)">
+      <g transform="scale(0.021)">
+        <path fill="#00C6E6" d="M 0,0 H 55 C 110,0 150,33 150,77 C 150,119 116,147 72,150 C 116,153 150,181 150,223 C 150,267 110,300 55,300 H 0 Z"/>
+        <path fill="#A7F3E5" transform="translate(336.0,0) scale(-1,1)" d="M 0,0 H 55 C 110,0 150,33 150,77 C 150,119 116,147 72,150 C 116,153 150,181 150,223 C 150,267 110,300 55,300 H 0 Z"/>
+        <path fill="#FFD54D" d="M 168.0,86 C 172.8,127.6 184.8,143.6 216.0,150 C 184.8,156.4 172.8,172.4 168.0,214 C 163.2,172.4 151.2,156.4 120.0,150 C 151.2,143.6 163.2,127.6 168.0,86 Z"/>
+      </g>
+      <text x="9" y="5.3" font-family="Quicksand" font-weight="700" font-size="5.4" fill="#001B2A" letter-spacing="-0.12">Brinda</text>
+      <text x="9.2" y="8" font-family="Quicksand" font-weight="600" font-size="1.05" fill="#00A9C9" letter-spacing="0.24">PUBLICIDAD QUE REGALA</text>
+    </g>
+  </g>
+</svg>
