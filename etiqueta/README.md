@@ -7,7 +7,8 @@ Arte final de la etiqueta envolvente y guía de colocación para el envase **Bot
 | Archivo | Qué es |
 |---|---|
 | `brinda-etiqueta-500ml.svg` | **Arte editable** en vector, a medida real (1 unidad = 1 mm). Se abre en Illustrator, Figma o Inkscape. El texto está vivo (no trazado) para poder completar los datos legales. |
-| `brinda-etiqueta-500ml-print-300dpi.png` | Arte final rasterizado a 300 dpi (2516 × 992 px), con demasía incluida, listo para imprenta. |
+| `brinda-etiqueta-500ml-IMPRENTA.pdf` | **La etiqueta sola, lista para imprimir**: PDF vectorial a tamaño real (213 × 84 mm, corte 207 × 84 mm). Es el archivo que se manda a la imprenta. |
+| `brinda-etiqueta-500ml-print-300dpi.png` | Arte final rasterizado a 300 dpi (2516 × 992 px), con demasía incluida (alternativa al PDF de imprenta). |
 | `Brinda_Colocacion_Etiqueta_Botella_PET_500ml.pdf` | Presentación: envase acotado, arte a escala 1:1, colocación en la botella con cotas, vistas de la botella terminada y especificaciones de producción. |
 
 ## Medidas

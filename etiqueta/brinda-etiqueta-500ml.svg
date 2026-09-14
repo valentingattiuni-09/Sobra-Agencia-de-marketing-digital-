@@ -10,122 +10,250 @@
        ============================================================ -->
   <defs>
     <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#DFF6FC"/>
-      <stop offset="0.55" stop-color="#F4FCFE"/>
-      <stop offset="1" stop-color="#FFFFFF"/>
+      <stop offset="0" stop-color="#8ED4EE"/>
+      <stop offset="0.35" stop-color="#C2EAF8"/>
+      <stop offset="0.7" stop-color="#E4F7FD"/>
+      <stop offset="1" stop-color="#F2FBFE"/>
     </linearGradient>
-    <linearGradient id="splash" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#00C6E6"/>
-      <stop offset="1" stop-color="#7FE3F2"/>
+    <linearGradient id="lago" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8FDCEF"/>
+      <stop offset="1" stop-color="#4EC3E4"/>
+    </linearGradient>
+    <linearGradient id="splash1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1FB2DF"/>
+      <stop offset="0.5" stop-color="#4FCBEA"/>
+      <stop offset="1" stop-color="#9FE8F6"/>
+    </linearGradient>
+    <linearGradient id="splash2" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2AB8E2"/>
+      <stop offset="1" stop-color="#8FE3F4"/>
     </linearGradient>
     <linearGradient id="scriptAzul" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#0099CE"/>
-      <stop offset="1" stop-color="#006DA8"/>
+      <stop offset="0" stop-color="#2288C0"/>
+      <stop offset="1" stop-color="#0F5E96"/>
+    </linearGradient>
+    <linearGradient id="ola1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5ED2EC"/>
+      <stop offset="1" stop-color="#35BEE4"/>
+    </linearGradient>
+    <linearGradient id="ola2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2FB6E2"/>
+      <stop offset="1" stop-color="#0FA0D4"/>
     </linearGradient>
   </defs>
 
-  <!-- ================= FONDO ================= -->
+  <!-- ================= FONDO / PAISAJE ================= -->
   <g id="fondo">
     <rect width="213" height="84" fill="url(#cielo)"/>
-    <!-- olas de agua (los extremos empalman a la misma altura para la junta del envolvente) -->
-    <path d="M0,62 C 28,56 58,68 90,62 C 122,56 152,68 182,62 C 196,59.5 205,64 213,62 L213,84 L0,84 Z"
-          fill="#A7F3E5" opacity="0.55"/>
-    <path d="M0,70 C 36,64 72,76 108,70 C 144,64 180,76 213,70 L213,84 L0,84 Z"
-          fill="#5FD9EC" opacity="0.55"/>
-    <path d="M0,77 C 44,72.5 96,81.5 152,77 C 178,75 198,79 213,77 L213,84 L0,84 Z"
-          fill="#00C6E6" opacity="0.9"/>
-    <!-- burbujas -->
+
+    <!-- cordillera lejana (recorre toda la etiqueta) -->
+    <g id="cordillera-lejana">
+      <path d="M0,45 L14,34 L26,42 L40,30 L54,41 L68,32 L82,42 L96,33 L110,42 L124,34 L138,42 L150,32 L160,40 L170,28 L182,38 L194,24 L204,34 L213,28 L213,60 L0,60 Z"
+            fill="#BCE4F2"/>
+      <g fill="#FFFFFF" opacity="0.95">
+        <path d="M36.5,33 L40,30 L43.5,33 L42,34.2 L40,32.6 L38,34.2 Z"/>
+        <path d="M92.5,36 L96,33 L99.5,36 L98,37.2 L96,35.6 L94,37.2 Z"/>
+        <path d="M146.5,35 L150,32 L153.5,35 L152,36.2 L150,34.6 L148,36.2 Z"/>
+        <path d="M166,31.5 L170,28 L174,31.5 L172.3,33 L170,31 L167.7,33 Z"/>
+        <path d="M190,28 L194,24 L198,28 L196.3,29.6 L194,27.4 L191.7,29.6 Z"/>
+      </g>
+    </g>
+
+    <!-- cordillera media con nieve (más marcada a la derecha) -->
+    <g id="cordillera-media">
+      <path d="M0,52 L18,42 L34,50 L52,40 L70,50 L88,41 L104,50 L122,42 L140,50 L152,38 L165,48 L178,32 L192,46 L202,36 L213,44 L213,64 L0,64 Z"
+            fill="#8FCFE6"/>
+      <g fill="#6FB9D8">
+        <path d="M152,38 L165,48 L158,48 Z"/>
+        <path d="M178,32 L192,46 L184,46 Z"/>
+        <path d="M202,36 L213,44 L206,44 Z"/>
+        <path d="M52,40 L70,50 L60,50 Z"/>
+      </g>
+      <g fill="#FFFFFF" opacity="0.95">
+        <path d="M48,42.4 L52,40 L56,42.4 L54.2,43.6 L52,42 L49.8,43.6 Z"/>
+        <path d="M148,41.4 L152,38 L156.2,41.4 L154,43 L152,41 L150,43 Z"/>
+        <path d="M173.6,36 L178,32 L182.6,36 L180.4,38 L178,35.6 L175.6,38 Z"/>
+        <path d="M198,39.4 L202,36 L206,39.4 L204.2,40.8 L202,38.8 L199.8,40.8 Z"/>
+        <path d="M84.5,43.8 L88,41 L91.5,43.8 L90,45 L88,43.4 L86,45 Z"/>
+      </g>
+    </g>
+
+    <!-- bosque de pinos junto al lago -->
+    <g id="pinos" fill="#2E9B85">
+      <path d="M58,58 L60,52.5 L62,58 Z"/><path d="M62.5,58 L64.2,53.8 L66,58 Z"/>
+      <path d="M67,58 L68.8,53 L70.6,58 Z"/><path d="M71.5,58 L73,54.4 L74.5,58 Z"/>
+      <path d="M88,58 L89.8,53.6 L91.6,58 Z"/><path d="M92.2,58 L93.8,54.6 L95.4,58 Z"/>
+      <path d="M139,58 L140.8,53.8 L142.6,58 Z"/><path d="M143.2,58 L144.8,54.8 L146.4,58 Z"/>
+    </g>
+    <g id="pinos2" fill="#3FB69B" opacity="0.85">
+      <path d="M60.8,58 L62.4,54 L64,58 Z"/><path d="M69,58 L70.6,54.6 L72.2,58 Z"/>
+      <path d="M90,58 L91.6,55 L93.2,58 Z"/><path d="M141,58 L142.6,55 L144.2,58 Z"/>
+    </g>
+
+    <!-- lago con reflejos -->
+    <rect y="58" width="213" height="12" fill="url(#lago)"/>
+    <g stroke="#FFFFFF" stroke-width="0.45" opacity="0.65" stroke-linecap="round">
+      <line x1="8" y1="60.5" x2="26" y2="60.5"/>
+      <line x1="46" y1="62" x2="70" y2="62"/>
+      <line x1="88" y1="60.8" x2="104" y2="60.8"/>
+      <line x1="120" y1="62.4" x2="142" y2="62.4"/>
+      <line x1="158" y1="60.6" x2="178" y2="60.6"/>
+      <line x1="188" y1="62.2" x2="206" y2="62.2"/>
+    </g>
+
+    <!-- olas inferiores (los extremos empalman a la misma altura) -->
+    <path d="M0,66 C 24,61.5 48,70.5 74,66 C 100,61.5 126,70.5 152,66 C 176,62 196,69.5 213,66 L213,84 L0,84 Z"
+          fill="url(#ola1)"/>
+    <path d="M0,66 C 24,61.5 48,70.5 74,66 C 100,61.5 126,70.5 152,66 C 176,62 196,69.5 213,66"
+          fill="none" stroke="#FFFFFF" stroke-width="0.8" opacity="0.85"/>
+    <path d="M0,73 C 30,68.5 58,77 90,73 C 122,69 152,77.5 182,73 C 194,71.3 204,74.5 213,73 L213,84 L0,84 Z"
+          fill="url(#ola2)"/>
+    <path d="M0,73 C 30,68.5 58,77 90,73 C 122,69 152,77.5 182,73 C 194,71.3 204,74.5 213,73"
+          fill="none" stroke="#FFFFFF" stroke-width="0.7" opacity="0.7"/>
+    <path d="M0,79 C 40,75.5 84,82 128,79 C 162,76.6 190,81 213,79 L213,84 L0,84 Z"
+          fill="#0891C6"/>
+
+    <!-- burbujas en el cielo -->
     <g fill="#FFFFFF">
-      <circle cx="34" cy="66" r="1.1" opacity="0.7"/>
-      <circle cx="40" cy="71" r="0.7" opacity="0.6"/>
-      <circle cx="98" cy="74" r="0.9" opacity="0.5"/>
-      <circle cx="160" cy="72" r="0.8" opacity="0.6"/>
-      <circle cx="186" cy="79" r="1.2" opacity="0.5"/>
-      <circle cx="70" cy="79" r="0.9" opacity="0.5"/>
+      <circle cx="120" cy="10" r="0.8" opacity="0.6"/>
+      <circle cx="126" cy="6" r="0.5" opacity="0.5"/>
+      <circle cx="36" cy="8" r="0.7" opacity="0.55"/>
     </g>
-    <g fill="#00C6E6">
-      <circle cx="30" cy="12" r="0.9" opacity="0.35"/>
-      <circle cx="26" cy="18" r="0.6" opacity="0.3"/>
-      <circle cx="90" cy="8" r="0.8" opacity="0.3"/>
+  </g>
+
+  <!-- ================= SALPICADURA IZQUIERDA ================= -->
+  <g id="salpicadura-izquierda">
+    <path d="M-2,84 C 8,60 2,42 12,28 C 17,20 14,10 5,3 C 18,8 27,20 22,33
+             C 30,46 21,62 28,84 Z" fill="url(#splash1)" opacity="0.92"/>
+    <path d="M-2,84 C 8,60 2,42 12,28 C 17,20 14,10 5,3"
+          fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.8" stroke-linecap="round"/>
+    <path d="M6,84 C 14,64 9,50 16,38 C 20,31 18.5,23 13,17
+             C 22,22 26.5,31.5 22.5,41 C 28.5,53 22,68 29,84 Z" fill="url(#splash2)" opacity="0.8"/>
+    <path d="M31,84 C 34,70 30,60 34,50 C 36,44.5 34.5,39 31,35
+             C 38,39 41,46.5 38,53.5 C 42,63 37,72 41,84 Z" fill="#5FD2EC" opacity="0.6"/>
+    <!-- gotas -->
+    <g>
+      <circle cx="11" cy="12" r="1.7" fill="#2FB9E2" opacity="0.85"/>
+      <circle cx="22" cy="6" r="1.1" fill="#6FDCF2" opacity="0.9"/>
+      <circle cx="17" cy="2.8" r="0.7" fill="#2FB9E2" opacity="0.7"/>
+      <circle cx="29" cy="13" r="0.9" fill="#FFFFFF" opacity="0.85"/>
+      <circle cx="7" cy="24" r="0.8" fill="#FFFFFF" opacity="0.8"/>
+      <circle cx="26" cy="21" r="0.6" fill="#FFFFFF" opacity="0.7"/>
+      <path d="M15,8 C 15.7,9.6 15.7,10.6 15,11.2 C 14.3,10.6 14.3,9.6 15,8 Z" fill="#4FC9EA"/>
+      <path d="M25,16 C 25.6,17.3 25.6,18.1 25,18.6 C 24.4,18.1 24.4,17.3 25,16 Z" fill="#8FE3F4"/>
     </g>
-    <!-- salpicadura izquierda -->
-    <g id="salpicadura">
-      <path d="M2,84 C 12,62 5,46 14,31 C 19,22.5 16,13 8,7
-               C 19,11.5 26.5,21 22.5,32.5 C 29.5,45 21,60 27,84 Z"
-            fill="url(#splash)" opacity="0.75"/>
-      <path d="M10,84 C 17,66 12,52 19,40 C 23,33 21.5,26 17,21
-               C 25,25.5 29,34 25.5,42.5 C 31,54 25,68 31.5,84 Z"
-            fill="#8FE7F4" opacity="0.6"/>
-      <circle cx="12" cy="14" r="1.5" fill="#00C6E6" opacity="0.6"/>
-      <circle cx="24" cy="9" r="1.0" fill="#7FE3F2" opacity="0.8"/>
-      <circle cx="18" cy="4.5" r="0.7" fill="#00C6E6" opacity="0.5"/>
-      <circle cx="30" cy="26" r="0.9" fill="#FFFFFF" opacity="0.8"/>
-      <circle cx="8" cy="38" r="0.8" fill="#FFFFFF" opacity="0.7"/>
-    </g>
-    <!-- montañas sector derecho -->
-    <g id="montanas">
-      <path d="M148,62 L165,20 L174,33 L187,12 L199,30 L206,22 L213,30 L213,62 Z"
-            fill="#7ECFE0" opacity="0.9"/>
-      <path d="M161.5,28.6 L165,20 L168.4,25 L166.8,26.6 L165,24.5 L163.4,27.4 Z" fill="#FFFFFF"/>
-      <path d="M183.4,17.8 L187,12 L190.6,17.4 L189,19 L187,16.5 L185.2,19.4 Z" fill="#FFFFFF"/>
-      <path d="M203.2,25.4 L206,22 L208.8,25.2 L207.4,26.4 L206,25 L204.6,26.8 Z" fill="#FFFFFF"/>
-      <path d="M148,62 L160,42 L171,55 L183,38 L196,54 L204,46 L213,53 L213,62 Z"
-            fill="#A7F3E5"/>
+  </g>
+
+  <!-- ================= SALPICADURA CENTRAL ================= -->
+  <g id="salpicadura-central">
+    <path d="M103,84 C 99,64 103,52 96,40 C 91,31.5 92,20 99,13
+             C 94,23 96,32 102,40 C 110,50.5 107,68 111,84 Z"
+          fill="url(#splash1)" opacity="0.85"/>
+    <path d="M99,13 C 94,23 96,32 102,40 C 110,50.5 107,68 111,84"
+          fill="none" stroke="#FFFFFF" stroke-width="0.9" opacity="0.75" stroke-linecap="round"/>
+    <path d="M92,84 C 90,68 93,58 89,48 C 86.5,42 87.5,35 91,30
+             C 88.5,37 90,43 94,48.5 C 99,56.5 96,72 99.5,84 Z"
+          fill="#6FD9F0" opacity="0.65"/>
+    <g>
+      <circle cx="97" cy="9" r="1.2" fill="#4FC9EA" opacity="0.9"/>
+      <circle cx="103" cy="16" r="0.8" fill="#8FE3F4" opacity="0.9"/>
+      <circle cx="93" cy="20" r="0.7" fill="#FFFFFF" opacity="0.8"/>
+      <circle cx="101" cy="26" r="0.55" fill="#FFFFFF" opacity="0.7"/>
+      <path d="M95,14 C 95.6,15.3 95.6,16.1 95,16.6 C 94.4,16.1 94.4,15.3 95,14 Z" fill="#4FC9EA"/>
     </g>
   </g>
 
   <!-- ================= PANEL FRENTE ================= -->
   <g id="frente">
-    <!-- sol -->
-    <g id="sol" transform="translate(80,13)">
-      <g fill="#FFD54D">
-        <g id="rayos">
-          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z"/>
-          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z" transform="rotate(30)"/>
-          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z" transform="rotate(60)"/>
-          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z" transform="rotate(90)"/>
-          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z" transform="rotate(120)"/>
-          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z" transform="rotate(150)"/>
-          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z" transform="rotate(180)"/>
-          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z" transform="rotate(210)"/>
-          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z" transform="rotate(240)"/>
-          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z" transform="rotate(270)"/>
-          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z" transform="rotate(300)"/>
-          <path d="M0,-6.2 L1.2,-11 L-1.2,-11 Z" transform="rotate(330)"/>
-        </g>
-        <circle r="5"/>
-      </g>
-      <circle r="3.4" fill="#FFE18A"/>
+    <!-- rayos dorados detrás del isotipo -->
+    <g id="rayos-logo" transform="translate(52,17)" fill="#FFD54D" opacity="0.95">
+      <path d="M-1.4,-8 L-2.8,-22 L0,-21 Z" transform="rotate(-72)"/>
+      <path d="M-1.4,-8 L-2.8,-20 L0,-19 Z" transform="rotate(-54)"/>
+      <path d="M-1.4,-8 L-2.8,-23 L0,-22 Z" transform="rotate(-36)"/>
+      <path d="M-1.4,-8 L-2.8,-19 L0,-18 Z" transform="rotate(-18)"/>
+      <path d="M-1.4,-8 L-2.8,-22.5 L0,-21.5 Z"/>
+      <path d="M-1.4,-8 L-2.8,-19 L0,-18 Z" transform="rotate(18)"/>
+      <path d="M-1.4,-8 L-2.8,-23 L0,-22 Z" transform="rotate(36)"/>
+      <path d="M-1.4,-8 L-2.8,-20 L0,-19 Z" transform="rotate(54)"/>
+      <path d="M-1.4,-8 L-2.8,-22 L0,-21 Z" transform="rotate(72)"/>
     </g>
 
-    <!-- isotipo Brinda (vector oficial, recoloreado a paleta etiqueta) -->
+    <!-- sol de mayo con cara -->
+    <g id="sol-de-mayo" transform="translate(77.5,15)">
+      <g fill="#F0B428">
+        <g id="rayos-sol">
+          <path d="M0,-5.6 L1,-10.6 L-1,-10.6 Z"/>
+          <path d="M0,-5.4 C 1.6,-6.6 1.8,-8.4 3.4,-8.8 C 2.2,-7.6 2.8,-6 1.6,-4.9 Z" transform="rotate(22.5)"/>
+          <path d="M0,-5.6 L1,-10.6 L-1,-10.6 Z" transform="rotate(45)"/>
+          <path d="M0,-5.4 C 1.6,-6.6 1.8,-8.4 3.4,-8.8 C 2.2,-7.6 2.8,-6 1.6,-4.9 Z" transform="rotate(67.5)"/>
+          <path d="M0,-5.6 L1,-10.6 L-1,-10.6 Z" transform="rotate(90)"/>
+          <path d="M0,-5.4 C 1.6,-6.6 1.8,-8.4 3.4,-8.8 C 2.2,-7.6 2.8,-6 1.6,-4.9 Z" transform="rotate(112.5)"/>
+          <path d="M0,-5.6 L1,-10.6 L-1,-10.6 Z" transform="rotate(135)"/>
+          <path d="M0,-5.4 C 1.6,-6.6 1.8,-8.4 3.4,-8.8 C 2.2,-7.6 2.8,-6 1.6,-4.9 Z" transform="rotate(157.5)"/>
+          <path d="M0,-5.6 L1,-10.6 L-1,-10.6 Z" transform="rotate(180)"/>
+          <path d="M0,-5.4 C 1.6,-6.6 1.8,-8.4 3.4,-8.8 C 2.2,-7.6 2.8,-6 1.6,-4.9 Z" transform="rotate(202.5)"/>
+          <path d="M0,-5.6 L1,-10.6 L-1,-10.6 Z" transform="rotate(225)"/>
+          <path d="M0,-5.4 C 1.6,-6.6 1.8,-8.4 3.4,-8.8 C 2.2,-7.6 2.8,-6 1.6,-4.9 Z" transform="rotate(247.5)"/>
+          <path d="M0,-5.6 L1,-10.6 L-1,-10.6 Z" transform="rotate(270)"/>
+          <path d="M0,-5.4 C 1.6,-6.6 1.8,-8.4 3.4,-8.8 C 2.2,-7.6 2.8,-6 1.6,-4.9 Z" transform="rotate(292.5)"/>
+          <path d="M0,-5.6 L1,-10.6 L-1,-10.6 Z" transform="rotate(315)"/>
+          <path d="M0,-5.4 C 1.6,-6.6 1.8,-8.4 3.4,-8.8 C 2.2,-7.6 2.8,-6 1.6,-4.9 Z" transform="rotate(337.5)"/>
+        </g>
+        <circle r="5.2"/>
+      </g>
+      <circle r="4.6" fill="#FBCB4A"/>
+      <!-- cara serena -->
+      <g stroke="#C88A1E" stroke-width="0.42" fill="none" stroke-linecap="round">
+        <path d="M-2.5,-0.9 C -2,-1.5 -1.1,-1.5 -0.7,-0.9"/>
+        <path d="M0.7,-0.9 C 1.1,-1.5 2,-1.5 2.5,-0.9"/>
+        <path d="M-0.3,0.2 C -0.1,0.9 0.3,0.9 0.5,0.5"/>
+        <path d="M-1.3,2.1 C -0.5,2.9 0.5,2.9 1.3,2.1"/>
+      </g>
+      <g stroke="#E4A93C" stroke-width="0.3" fill="none" opacity="0.8">
+        <path d="M-3.4,-2.6 C -2.6,-3.4 -1.4,-3.6 -0.6,-3.2"/>
+        <path d="M0.6,-3.2 C 1.4,-3.6 2.6,-3.4 3.4,-2.6"/>
+      </g>
+    </g>
+
+    <!-- isotipo Brinda (vector oficial, paleta etiqueta) -->
     <g id="isotipo" transform="translate(41.5,8) scale(0.0625)">
       <path fill="#00C6E6" d="M 0,0 H 55 C 110,0 150,33 150,77 C 150,119 116,147 72,150 C 116,153 150,181 150,223 C 150,267 110,300 55,300 H 0 Z"/>
       <path fill="#A7F3E5" transform="translate(336.0,0) scale(-1,1)" d="M 0,0 H 55 C 110,0 150,33 150,77 C 150,119 116,147 72,150 C 116,153 150,181 150,223 C 150,267 110,300 55,300 H 0 Z"/>
       <path fill="#FFD54D" d="M 168.0,86 C 172.8,127.6 184.8,143.6 216.0,150 C 184.8,156.4 172.8,172.4 168.0,214 C 163.2,172.4 151.2,156.4 120.0,150 C 151.2,143.6 163.2,127.6 168.0,86 Z"/>
     </g>
 
-    <!-- marca -->
+    <!-- marca (con halo blanco para legibilidad sobre el paisaje) -->
+    <text x="52" y="40.5" font-family="Quicksand" font-weight="700" font-size="12.5"
+          fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.75" text-anchor="middle" letter-spacing="-0.35">Brinda</text>
     <text x="52" y="40.5" font-family="Quicksand" font-weight="700" font-size="12.5"
           fill="#001B2A" text-anchor="middle" letter-spacing="-0.35">Brinda</text>
     <text x="52" y="45.4" font-family="Quicksand" font-weight="600" font-size="2.25"
-          fill="#00A9C9" text-anchor="middle" letter-spacing="0.62">PUBLICIDAD QUE REGALA</text>
+          fill="none" stroke="#FFFFFF" stroke-width="0.8" opacity="0.75" text-anchor="middle" letter-spacing="0.62">PUBLICIDAD QUE REGALA</text>
+    <text x="52" y="45.4" font-family="Quicksand" font-weight="600" font-size="2.25"
+          fill="#0090BC" text-anchor="middle" letter-spacing="0.62">PUBLICIDAD QUE REGALA</text>
 
     <!-- claim script -->
     <text x="52" y="58.5" font-family="'Dancing Script'" font-weight="700" font-size="10"
+          fill="none" stroke="#FFFFFF" stroke-width="1.3" opacity="0.7" text-anchor="middle">Agua</text>
+    <text x="52" y="58.5" font-family="'Dancing Script'" font-weight="700" font-size="10"
           fill="url(#scriptAzul)" text-anchor="middle">Agua</text>
+    <text x="52" y="67.5" font-family="'Dancing Script'" font-weight="700" font-size="8"
+          fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.7" text-anchor="middle">que nos une</text>
     <text x="52" y="67.5" font-family="'Dancing Script'" font-weight="700" font-size="8"
           fill="url(#scriptAzul)" text-anchor="middle">que nos une</text>
 
     <!-- contenido neto frente -->
     <text x="12" y="75.5" font-family="Quicksand" font-weight="700" font-size="5"
+          fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.6">500 ml</text>
+    <text x="12" y="75.5" font-family="Quicksand" font-weight="700" font-size="5"
           fill="#001B2A">500 ml</text>
 
     <!-- industria argentina -->
     <g id="origen-frente">
-      <text x="84.5" y="72.6" font-size="1.8" font-weight="600" fill="#001B2A" text-anchor="end">INDUSTRIA</text>
-      <text x="84.5" y="75" font-size="1.8" font-weight="600" fill="#001B2A" text-anchor="end">ARGENTINA</text>
-      <g transform="translate(86.5,70.2)">
+      <rect x="66.5" y="69.2" width="22" height="7.4" rx="1.4" fill="#FFFFFF" opacity="0.75"/>
+      <text x="83" y="72.6" font-size="1.8" font-weight="600" fill="#001B2A" text-anchor="end">INDUSTRIA</text>
+      <text x="83" y="75" font-size="1.8" font-weight="600" fill="#001B2A" text-anchor="end">ARGENTINA</text>
+      <g transform="translate(84.2,70.6)">
         <rect width="7.6" height="4.7" rx="0.5" fill="#FFFFFF" stroke="#C9E8F2" stroke-width="0.15"/>
         <path d="M0.5,0 H7.1 A0.5,0.5 0 0 1 7.6,0.5 V1.57 H0 V0.5 A0.5,0.5 0 0 1 0.5,0 Z" fill="#74ACDF"/>
         <path d="M0,3.13 H7.6 V4.2 A0.5,0.5 0 0 1 7.1,4.7 H0.5 A0.5,0.5 0 0 1 0,4.2 Z" fill="#74ACDF"/>
@@ -136,42 +264,40 @@
 
   <!-- ================= PANEL LEGAL (DORSO) ================= -->
   <g id="panel-legal">
-    <rect x="98.5" y="3.5" width="56" height="77" rx="3" fill="#FFFFFF" opacity="0.85"/>
+    <rect x="106.5" y="3.5" width="53" height="77" rx="3" fill="#FFFFFF" opacity="0.88"/>
     <g fill="#001B2A">
-      <text x="101.5" y="9" font-size="2.4" font-weight="700">AGUA POTABILIZADA</text>
-      <text x="101.5" y="12.2" font-size="2.4" font-weight="700">AGUA DE MESA</text>
+      <text x="109.5" y="9" font-size="2.4" font-weight="700">AGUA POTABILIZADA</text>
+      <text x="109.5" y="12.2" font-size="2.4" font-weight="700">AGUA DE MESA</text>
 
-      <text x="101.5" y="16.8" font-size="2.1">Contenido neto: <tspan font-weight="700" font-size="2.4">500 ml</tspan></text>
+      <text x="109.5" y="16.8" font-size="2.1">Contenido neto: <tspan font-weight="700" font-size="2.4">500 ml</tspan></text>
 
-      <text x="101.5" y="21.4" font-size="2" font-weight="600">Elaborado y fraccionado por:</text>
-      <text x="101.5" y="24" font-size="1.9">[Razón Social del Fraccionador]</text>
-      <text x="101.5" y="26.6" font-size="1.9">[Domicilio completo – Localidad – Provincia]</text>
-      <text x="101.5" y="29.8" font-size="2"><tspan font-weight="700">RNE N°:</tspan> [XX-XXXXXXXX]</text>
-      <text x="101.5" y="32.4" font-size="2"><tspan font-weight="700">RNPA N°:</tspan> [XX-XXXXXXXX]</text>
+      <text x="109.5" y="21.4" font-size="2" font-weight="600">Elaborado y fraccionado por:</text>
+      <text x="109.5" y="24" font-size="1.9">[Razón Social del Fraccionador]</text>
+      <text x="109.5" y="26.6" font-size="1.9">[Domicilio completo – Localidad – Provincia]</text>
+      <text x="109.5" y="29.8" font-size="2"><tspan font-weight="700">RNE N°:</tspan> [XX-XXXXXXXX]</text>
+      <text x="109.5" y="32.4" font-size="2"><tspan font-weight="700">RNPA N°:</tspan> [XX-XXXXXXXX]</text>
 
-      <text x="101.5" y="36.8" font-size="2" font-weight="600">Composición química (mg/l):</text>
-      <text x="101.5" y="39.4" font-size="1.8">Sodio: [XX] · Calcio: [XX] · Magnesio: [XX]</text>
-      <text x="101.5" y="41.8" font-size="1.8">Bicarbonatos: [XX] · Cloruros: [XX] · Sulfatos: [XX]</text>
-      <text x="101.5" y="44.2" font-size="1.8">Residuo seco a 180 °C: [XX] mg/l</text>
+      <text x="109.5" y="36.8" font-size="2" font-weight="600">Composición química (mg/l):</text>
+      <text x="109.5" y="39.4" font-size="1.8">Sodio: [XX] · Calcio: [XX] · Magnesio: [XX]</text>
+      <text x="109.5" y="41.8" font-size="1.8">Bicarbonatos: [XX] · Cloruros: [XX] · Sulfatos: [XX]</text>
+      <text x="109.5" y="44.2" font-size="1.8">Residuo seco a 180 °C: [XX] mg/l</text>
 
-      <text x="101.5" y="47.8" font-size="1.9">Conservar en lugar fresco, seco y alejado</text>
-      <text x="101.5" y="50.2" font-size="1.9">de la luz solar.</text>
-      <text x="101.5" y="53" font-size="1.9">Consumir preferentemente antes de:</text>
-      <text x="101.5" y="55.4" font-size="1.9">[DD/MM/AAAA] — <tspan font-weight="600">Lote:</tspan> [XXXXXX]</text>
+      <text x="109.5" y="47.8" font-size="1.9">Conservar en lugar fresco, seco y alejado</text>
+      <text x="109.5" y="50.2" font-size="1.9">de la luz solar.</text>
+      <text x="109.5" y="53" font-size="1.9">Consumir preferentemente antes de:</text>
+      <text x="109.5" y="55.4" font-size="1.9">[DD/MM/AAAA] — <tspan font-weight="600">Lote:</tspan> [XXXXXX]</text>
     </g>
 
     <!-- banda promocional -->
-    <rect x="101" y="57.8" width="51" height="7.8" rx="1.6" fill="#00C6E6"/>
-    <text x="126.5" y="61.3" font-size="1.85" font-weight="700" fill="#FFFFFF" text-anchor="middle">PRODUCTO PROMOCIONAL – PROHIBIDA SU VENTA</text>
-    <text x="126.5" y="64.1" font-size="1.8" font-weight="500" fill="#FFFFFF" text-anchor="middle">Muestra sin valor comercial</text>
+    <rect x="109" y="57.8" width="48" height="7.8" rx="1.6" fill="#00C6E6"/>
+    <text x="133" y="61.3" font-size="1.78" font-weight="700" fill="#FFFFFF" text-anchor="middle">PRODUCTO PROMOCIONAL – PROHIBIDA SU VENTA</text>
+    <text x="133" y="64.1" font-size="1.8" font-weight="500" fill="#FFFFFF" text-anchor="middle">Muestra sin valor comercial</text>
 
     <!-- iconos ambientales / origen -->
     <g id="iconos-legal" fill="#001B2A">
-      <!-- reciclable -->
-      <text x="109" y="74.4" font-size="6" text-anchor="middle" font-family="'DejaVu Sans'">&#9851;</text>
-      <text x="109" y="77.6" font-size="1.5" font-weight="600" text-anchor="middle">PET RECICLABLE</text>
-      <!-- cuidemos el ambiente (figura + cesto) -->
-      <g transform="translate(126.5,68)" stroke="#001B2A" stroke-width="0.45" fill="none" stroke-linecap="round">
+      <text x="116" y="74.4" font-size="6" text-anchor="middle" font-family="'DejaVu Sans'">&#9851;</text>
+      <text x="116" y="77.6" font-size="1.5" font-weight="600" text-anchor="middle">PET RECICLABLE</text>
+      <g transform="translate(133,68)" stroke="#001B2A" stroke-width="0.45" fill="none" stroke-linecap="round">
         <circle cx="-1.6" cy="0.8" r="0.85" fill="#001B2A" stroke="none"/>
         <path d="M-1.5,1.7 C -0.9,2.6 0.3,3.2 1.2,3.4"/>
         <path d="M-1.7,1.7 L-2.1,4.6 L-2.9,6.6"/>
@@ -179,37 +305,48 @@
         <rect x="1.4" y="3.1" width="2.1" height="2.9" rx="0.3"/>
         <line x1="1.1" y1="3.1" x2="3.8" y2="3.1"/>
       </g>
-      <text x="126.5" y="77.6" font-size="1.5" font-weight="600" text-anchor="middle">Cuidemos juntos</text>
-      <text x="126.5" y="79.5" font-size="1.5" font-weight="600" text-anchor="middle">el ambiente</text>
-      <!-- bandera -->
-      <g transform="translate(140,68.6)">
+      <text x="133" y="77.6" font-size="1.5" font-weight="600" text-anchor="middle">Cuidemos juntos</text>
+      <text x="133" y="79.5" font-size="1.5" font-weight="600" text-anchor="middle">el ambiente</text>
+      <g transform="translate(146,68.6)">
         <rect width="8" height="4.9" rx="0.5" fill="#FFFFFF" stroke="#C9E8F2" stroke-width="0.15"/>
         <path d="M0.5,0 H7.5 A0.5,0.5 0 0 1 8,0.5 V1.63 H0 V0.5 A0.5,0.5 0 0 1 0.5,0 Z" fill="#74ACDF"/>
         <path d="M0,3.27 H8 V4.4 A0.5,0.5 0 0 1 7.5,4.9 H0.5 A0.5,0.5 0 0 1 0,4.4 Z" fill="#74ACDF"/>
         <circle cx="4" cy="2.45" r="0.65" fill="#F6B40E"/>
       </g>
-      <text x="144" y="77.6" font-size="1.5" font-weight="600" text-anchor="middle">INDUSTRIA ARGENTINA</text>
+      <text x="150" y="77.6" font-size="1.5" font-weight="600" text-anchor="middle">INDUSTRIA ARGENTINA</text>
     </g>
   </g>
 
   <!-- ================= ZONA DERECHA ================= -->
   <g id="zona-derecha">
-    <rect x="155.5" y="21" width="36" height="38" rx="2.4" fill="#FFFFFF" opacity="0.72"/>
+    <!-- picos nevados protagonistas -->
+    <g id="picos-derecha">
+      <path d="M160,58 L172,26 L180,38 L190,16 L200,34 L206,26 L213,34 L213,58 Z" fill="#5FA9CC"/>
+      <path d="M172,26 L180,38 L175,38 Z M190,16 L200,34 L194,34 Z M206,26 L213,34 L208,34 Z" fill="#417F9F" opacity="0.7"/>
+      <g fill="#FFFFFF">
+        <path d="M168.8,34.5 L172,26 L175.4,31.2 L173.8,33 L172,30.5 L170.4,34.8 Z"/>
+        <path d="M186,24.8 L190,16 L194.4,24 L192.4,26 L190,22.5 L188,27 Z"/>
+        <path d="M203.4,29.5 L206,26 L208.8,29.3 L207.4,30.6 L206,29 L204.6,30.8 Z"/>
+      </g>
+    </g>
+
+    <rect x="161.5" y="24" width="35" height="24" rx="2.4" fill="#FFFFFF" opacity="0.78"/>
     <g fill="#001B2A" font-size="3.1" font-weight="600">
-      <text x="158.5" y="26.6">“Argentina</text>
-      <text x="158.5" y="30.9">nos da agua</text>
-      <text x="158.5" y="35.2">y nosotros</text>
-      <text x="158.5" y="39.5">la compartimos.”</text>
+      <text x="164.5" y="29.6">“Argentina</text>
+      <text x="164.5" y="33.9">nos da agua</text>
+      <text x="164.5" y="38.2">y nosotros</text>
+      <text x="164.5" y="42.5">la compartimos.”</text>
     </g>
     <!-- mini logo horizontal -->
-    <g id="mini-logo" transform="translate(158,48.5)">
+    <g id="mini-logo" transform="translate(164,50)">
+      <rect x="-2.5" y="-3" width="34" height="12.4" rx="2" fill="#FFFFFF" opacity="0.78"/>
       <g transform="scale(0.021)">
         <path fill="#00C6E6" d="M 0,0 H 55 C 110,0 150,33 150,77 C 150,119 116,147 72,150 C 116,153 150,181 150,223 C 150,267 110,300 55,300 H 0 Z"/>
         <path fill="#A7F3E5" transform="translate(336.0,0) scale(-1,1)" d="M 0,0 H 55 C 110,0 150,33 150,77 C 150,119 116,147 72,150 C 116,153 150,181 150,223 C 150,267 110,300 55,300 H 0 Z"/>
         <path fill="#FFD54D" d="M 168.0,86 C 172.8,127.6 184.8,143.6 216.0,150 C 184.8,156.4 172.8,172.4 168.0,214 C 163.2,172.4 151.2,156.4 120.0,150 C 151.2,143.6 163.2,127.6 168.0,86 Z"/>
       </g>
       <text x="9" y="5.3" font-family="Quicksand" font-weight="700" font-size="5.4" fill="#001B2A" letter-spacing="-0.12">Brinda</text>
-      <text x="9.2" y="8" font-family="Quicksand" font-weight="600" font-size="1.05" fill="#00A9C9" letter-spacing="0.24">PUBLICIDAD QUE REGALA</text>
+      <text x="9.2" y="8" font-family="Quicksand" font-weight="600" font-size="1.05" fill="#0090BC" letter-spacing="0.24">PUBLICIDAD QUE REGALA</text>
     </g>
   </g>
 </svg>
