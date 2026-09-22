@@ -41,7 +41,7 @@
   </nav>
 
   <div class="header-right">
-    <a href="#cierre" class="btn btn-solid">Quiero mi etiqueta</a>
+    <a href="#cierre" class="btn btn-solid">Quiero mi publicidad que vale</a>
     <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav">
       <span></span>
     </button>
@@ -56,7 +56,7 @@
     <li><a href="#planes">Planes</a></li>
     <li><a href="#cierre">Contacto</a></li>
   </ul>
-  <a href="#cierre" class="btn btn-solid">Quiero mi etiqueta</a>
+  <a href="#cierre" class="btn btn-solid">Quiero mi publicidad que vale</a>
 </nav>
 
 <main id="contenido">
@@ -64,21 +64,25 @@
   <!-- ============ STAGE 1 — HERO + EL FORMATO (botella fija) ============ -->
   <div class="stage" id="formato" style="height: 340vh;">
     <div class="stage-sticky">
-      <div class="stage-bg"></div>
+      <div class="stage-bg">
+        <div class="blob blob-1" id="blob-1" aria-hidden="true"></div>
+        <div class="blob blob-2" id="blob-2" aria-hidden="true"></div>
+        <img class="brand-watermark" src="img/brinda-mark.svg" alt="" aria-hidden="true">
+      </div>
 
-      <span class="hero-word" aria-hidden="true">BRINDA</span>
+      <span class="hero-word" id="hero-word" aria-hidden="true">BRINDA</span>
 
       <div class="stage-grid">
 
         <div class="hero-copy" id="hero-copy">
           <span class="eyebrow" style="margin-bottom:1rem"><span class="idx">00</span> Un nuevo formato publicitario</span>
-          <h1>Publicidad que la gente <em style="font-style:normal;color:var(--navy);border-bottom:4px solid var(--cyan)">te agradece.</em></h1>
+          <h1><span class="ink" id="hero-ink">Publicidad que la gente </span><em style="font-style:normal;color:var(--navy);border-bottom:4px solid var(--cyan)">te agradece.</em></h1>
           <p class="lead">Le regalamos agua a la gente. Tu marca se queda con la etiqueta… y con 20 a 40 minutos en su mano.</p>
           <div class="hero-cta">
-            <a href="#cierre" class="btn btn-solid">Quiero mi etiqueta
+            <a href="#cierre" class="btn btn-solid">Quiero mi publicidad que vale
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
-            <a href="#porque" class="btn btn-line">Cómo funciona</a>
+            <a href="#formato" class="btn btn-line">Cómo funciona</a>
           </div>
         </div>
 
@@ -128,7 +132,9 @@
   <!-- ============ STAGE 2 — LO QUE SIENTE LA PERSONA ============ -->
   <div class="stage" id="persona" style="height: 300vh;">
     <div class="stage-sticky">
-      <div class="stage-bg" style="background:linear-gradient(180deg, var(--paper) 0%, rgba(255,213,77,.10) 100%)"></div>
+      <div class="stage-bg" style="background:linear-gradient(180deg, var(--celeste-100) 0%, #EADFC8 55%, var(--celeste-agua) 100%)">
+        <div class="blob blob-1" style="opacity:.4" aria-hidden="true"></div>
+      </div>
 
       <div class="stage-grid" style="grid-template-columns:1fr">
         <div class="bottle-col bottle-col--solo">
@@ -143,9 +149,9 @@
 
       <div class="phrase-field" id="phrase-field">
         <p class="phrase ph-1">La publicidad está en todos lados. Esta vez, alguien me dio algo.</p>
-        <p class="phrase ph-2">No me interrumpió. Me regaló agua.</p>
-        <p class="phrase ph-3">Che, esta marca me regaló algo.</p>
-        <p class="phrase ph-4">Una cuadra, dos, tres… y la botella sigue en mi mano.</p>
+        <p class="phrase ph-2">No me interrumpió. <span class="hl-word">Me regaló</span> agua.</p>
+        <p class="phrase ph-3">Che, esta marca me <span class="hl-word">regaló</span> algo.</p>
+        <p class="phrase ph-4">Una cuadra, dos, tres… y la botella <span class="hl-word">sigue en mi mano</span>.</p>
       </div>
 
       <div class="persona-close" id="persona-close">
@@ -156,10 +162,11 @@
 
   <!-- ============ POR QUÉ BRINDA ============ -->
   <section class="section" id="porque">
+    <div class="blob blob-2" style="opacity:.3" aria-hidden="true"></div>
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow"><span class="idx">01</span> Confianza</span>
-        <h2>Por qué Brinda</h2>
+        <h2 class="ink">Por qué Brinda</h2>
       </div>
 
       <div class="trust-layout">
@@ -168,7 +175,7 @@
         </div>
 
         <div>
-          <ul class="trust-list reveal reveal-stagger">
+          <ul class="trust-list reveal reveal-bounce reveal-stagger">
             <li class="trust-item" style="--i:0">
               <span class="tag">Operación</span>
               <div>
@@ -199,6 +206,7 @@
             </li>
           </ul>
 
+          <!-- Oculto hasta tener datos reales del pilot. Descomentar cuando estén.
           <div class="metrics-row reveal reveal-stagger">
             <div class="metric" style="--i:0">
               <span class="val">[ · ]</span>
@@ -216,6 +224,7 @@
               <span class="placeholder-note">A completar con el pilot</span>
             </div>
           </div>
+          -->
         </div>
       </div>
     </div>
@@ -223,13 +232,14 @@
 
   <!-- ============ PLANES ============ -->
   <section class="section section--paper" id="planes">
+    <div class="blob blob-1" style="opacity:.25" aria-hidden="true"></div>
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow"><span class="idx">02</span> Planes</span>
-        <h2>A medida de tu volumen. Se cotiza según cada caso.</h2>
+        <h2 class="ink">A medida de tu volumen. Se cotiza según cada caso.</h2>
       </div>
 
-      <div class="plans-grid reveal reveal-stagger">
+      <div class="plans-grid reveal reveal-bounce reveal-stagger">
         <div class="plan-card" style="--i:0">
           <span class="plan-tag">Arranque</span>
           <h3>Arranque</h3>
@@ -243,7 +253,7 @@
         </div>
 
         <div class="plan-card is-featured" style="--i:1">
-          <span class="plan-tag">Más elegido</span>
+          <span class="plan-tag">Recomendado</span>
           <h3>Activación</h3>
           <span class="plan-from">Desde 10.000 botellas</span>
           <p class="plan-desc">El formato completo, a escala: todo lo del plan Arranque con mayor alcance.</p>
@@ -266,6 +276,12 @@
           </ul>
         </div>
       </div>
+
+      <div class="plans-cta reveal">
+        <a href="#cierre" class="btn btn-solid">Pedí tu presupuesto
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -274,7 +290,7 @@
     <div class="container">
       <div class="section-head on-dark reveal">
         <span class="eyebrow"><span class="idx">03</span> Sumate</span>
-        <h2>Poné tu marca en la mano de la gente.</h2>
+        <h2 class="ink">Poné tu marca en la mano de la gente.</h2>
       </div>
 
       <div class="close-layout">
@@ -306,7 +322,7 @@
         </div>
 
         <form class="form-wrap reveal" id="contact-form" novalidate>
-          <h3>Quiero una propuesta</h3>
+          <h3>Pedí tu presupuesto</h3>
           <p class="lead">Contanos de tu marca y te armamos una propuesta a medida.</p>
 
           <div class="fgrid cols-2">
@@ -369,7 +385,7 @@
 
           <div class="form-foot">
             <span class="form-note">No compartimos tus datos. Los usamos solo para armar tu propuesta.</span>
-            <button type="submit" class="btn btn-solid">Quiero una propuesta
+            <button type="submit" class="btn btn-solid">Enviar pedido de presupuesto
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </button>
           </div>

@@ -84,19 +84,26 @@
     var stage1 = document.getElementById("formato");
     if (stage1) {
       var heroCopy = document.getElementById("hero-copy");
+      var heroInk = document.getElementById("hero-ink");
+      var heroWord = document.getElementById("hero-word");
+      var blob1 = document.getElementById("blob-1");
+      var blob2 = document.getElementById("blob-2");
       var scrollHint = document.getElementById("scroll-hint");
       var rig1 = document.getElementById("bottle-rig");
       var cards = Array.prototype.slice.call(document.querySelectorAll(".float-card"));
       var branded = document.getElementById("bottle-branded");
       var blank = document.getElementById("bottle-blank-layer");
       var labelOverlay = document.getElementById("label-overlay");
+      var bounceEase = gsap.parseEase("back.out(1.8)");
 
       var setRig1RotY = gsap.quickSetter(rig1, "rotationY", "deg");
       var setRig1Scale = gsap.quickSetter(rig1, "scale");
-      var cardSetters = cards.map(function (card) {
+      var cardSetters = cards.map(function (card, i) {
         return {
           op: gsap.quickSetter(card, "opacity"),
-          y: gsap.quickSetter(card, "y", "px")
+          x: gsap.quickSetter(card, "x", "px"),
+          y: gsap.quickSetter(card, "y", "px"),
+          dir: i % 2 === 0 ? -1 : 1
         };
       });
       var heroOp = gsap.quickSetter(heroCopy, "opacity");
@@ -105,6 +112,9 @@
       var brandedOp = gsap.quickSetter(branded, "opacity");
       var blankOp = gsap.quickSetter(blank, "opacity");
       var labelOp = gsap.quickSetter(labelOverlay, "opacity");
+      var wordY = heroWord ? gsap.quickSetter(heroWord, "y", "px") : function () {};
+      var blob1Y = blob1 ? gsap.quickSetter(blob1, "y", "px") : function () {};
+      var blob2Y = blob2 ? gsap.quickSetter(blob2, "y", "px") : function () {};
 
       ScrollTrigger.create({
         trigger: stage1,
@@ -117,6 +127,13 @@
           var heroFade = 1 - mapRange(p, 0, 0.14);
           heroOp(heroFade);
           heroY((1 - heroFade) * -30);
+          if (heroInk) heroInk.style.setProperty("--fill", Math.round(mapRange(p, 0, 0.16) * 100) + "%");
+
+          // Parallax leve: el fondo (blobs, palabra gigante) se mueve
+          // más despacio que el contenido en primer plano.
+          wordY(p * -40);
+          blob1Y(p * 60);
+          blob2Y(p * -50);
 
           hintOp(1 - mapRange(p, 0, 0.06));
 
@@ -129,7 +146,9 @@
             var outP = 1 - mapRange(p, 0.92, 1);
             var v = Math.min(inP, outP);
             s.op(v);
-            s.y(24 * (1 - inP));
+            var eased = bounceEase(inP);
+            s.y(24 * (1 - eased));
+            s.x(14 * s.dir * (1 - eased));
           });
 
           // La etiqueta pasa de "Brinda" a "Tu marca acá" a medida que se leen las tarjetas.

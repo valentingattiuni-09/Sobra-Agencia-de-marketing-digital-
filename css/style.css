@@ -18,6 +18,14 @@
   --paper: #F4F6F8;
   --white: #FFFFFF;
 
+  /* Tonos intermedios celeste-azulado, para que las secciones "bajen"
+     por el agua en vez de quedar planas en blanco. */
+  --celeste-50: #EAF7FC;
+  --celeste-100: #D2EEF9;
+  --celeste-agua: #7FD4EF;
+  --azul-medio: #2AA0D8;
+  --azul-profundo: #0F5C8C;
+
   --f-head: 'Sora', 'Arial Narrow', sans-serif;
   --f-body: 'Inter', -apple-system, sans-serif;
 
@@ -25,6 +33,16 @@
   --pad: clamp(1.25rem, 5vw, 4rem);
 
   --ease: cubic-bezier(.16, 1, .3, 1);
+  --ease-bounce: cubic-bezier(.34, 1.56, .64, 1);
+}
+
+/* Permite animar/transicionar el custom property con CSS (llenado de
+   texto tipo "agua"). Los navegadores que no lo soporten simplemente
+   ven el estado final sin la transición progresiva — no rompe nada. */
+@property --fill {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 0%;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -67,6 +85,8 @@ h1, h2, h3, h4 {
 }
 
 .container {
+  position: relative;
+  z-index: 1;
   max-width: var(--max-w);
   margin: 0 auto;
   padding-left: var(--pad);
@@ -97,6 +117,36 @@ h1, h2, h3, h4 {
 }
 .on-dark .eyebrow, .on-dark .eyebrow .idx { color: var(--mint); border-color: var(--mint); }
 
+/* ---------- "Llenado de agua": el texto se tiñe de celeste a medida
+   que entra en pantalla. --fill va de 0% a 100% (JS en pinned stages,
+   clase .is-visible en secciones normales). Antes de --fill, degradé
+   azul; después, el color base (gris/navy) sin teñir todavía. */
+.ink {
+  --fill: 0%;
+  /* En claro: navy -> azul profundo (ambos oscuros, AA seguro contra
+     cualquiera de los fondos celestes). En on-dark: celeste-agua ->
+     blanco (ambos claros, AA seguro contra navy). Nunca un extremo
+     claro sobre fondo claro ni uno oscuro sobre fondo oscuro. */
+  --ink-deep: var(--navy);
+  --ink-light: var(--azul-profundo);
+  --ink-base: var(--navy);
+  background-image: linear-gradient(
+    90deg,
+    var(--ink-deep) 0%,
+    var(--ink-light) var(--fill),
+    var(--ink-base) var(--fill),
+    var(--ink-base) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  transition: --fill 1.1s var(--ease);
+}
+.no-motion .ink,
+.reveal.is-visible .ink { --fill: 100%; }
+.on-dark .ink { --ink-deep: var(--celeste-agua); --ink-light: var(--white); --ink-base: var(--white); }
+
 .lead {
   font-family: var(--f-body);
   font-size: clamp(1.05rem, 1.6vw, 1.22rem);
@@ -109,6 +159,7 @@ h1, h2, h3, h4 {
 /* ---------- Buttons ---------- */
 
 .btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: .6em;
@@ -120,6 +171,7 @@ h1, h2, h3, h4 {
   border-radius: 0;
   background: transparent;
   color: var(--navy);
+  overflow: hidden;
   transition: background .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease), transform .2s var(--ease);
   white-space: nowrap;
 }
@@ -131,12 +183,27 @@ h1, h2, h3, h4 {
   color: var(--white);
   border-color: var(--navy);
 }
-.btn-solid:hover { background: var(--cyan); border-color: var(--cyan); color: var(--navy); }
+.btn-solid:hover { background: var(--azul-profundo); border-color: var(--azul-profundo); color: var(--white); }
 
-.btn-line:hover { background: var(--navy); color: var(--white); }
+/* Brillo sutil que recorre el botón principal cada tanto. */
+.btn-solid::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: -60%;
+  width: 40%;
+  background: linear-gradient(115deg, transparent 0%, rgba(255,255,255,.35) 50%, transparent 100%);
+  transform: skewX(-18deg);
+  animation: btn-shimmer 5s ease-in-out infinite;
+}
+@keyframes btn-shimmer {
+  0%, 20% { left: -60%; }
+  40%, 100% { left: 130%; }
+}
+
+.btn-line:hover { background: var(--azul-profundo); border-color: var(--azul-profundo); color: var(--white); }
 
 .on-dark .btn-line { border-color: rgba(255,255,255,.5); color: var(--white); }
-.on-dark .btn-line:hover { background: var(--white); color: var(--navy); border-color: var(--white); }
+.on-dark .btn-line:hover { background: var(--celeste-agua); color: var(--navy); border-color: var(--celeste-agua); }
 
 /* ============================================================
    Header
@@ -180,14 +247,16 @@ h1, h2, h3, h4 {
   color: var(--navy);
   position: relative;
   padding-bottom: .2rem;
+  transition: color .25s var(--ease);
 }
+.main-nav a:hover, .main-nav a.is-active { color: var(--azul-profundo); }
 .main-nav a::after {
   content: "";
   position: absolute;
   left: 0; bottom: 0;
   width: 100%;
   height: 1.5px;
-  background: var(--navy);
+  background: var(--azul-medio);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform .3s var(--ease);
@@ -264,9 +333,59 @@ h1, h2, h3, h4 {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: var(--white);
+  background: linear-gradient(180deg, var(--celeste-50) 0%, var(--celeste-100) 100%);
   transition: background 1.2s var(--ease);
+  overflow: hidden;
 }
+
+/* Manchas difusas de fondo: sutiles, se mueven lento, se pausan solas
+   bajo prefers-reduced-motion (la regla global ya deja todo en su
+   posición final sin animar el movimiento). */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: .55;
+  will-change: transform;
+}
+.blob-1 {
+  width: 46vw; height: 46vw; max-width: 620px; max-height: 620px;
+  top: -12%; right: -10%;
+  background: radial-gradient(circle, var(--celeste-agua) 0%, transparent 72%);
+  animation: blob-drift-a 22s ease-in-out infinite;
+}
+.blob-2 {
+  width: 34vw; height: 34vw; max-width: 460px; max-height: 460px;
+  bottom: -14%; left: -8%;
+  background: radial-gradient(circle, var(--azul-medio) 0%, transparent 72%);
+  opacity: .35;
+  animation: blob-drift-b 26s ease-in-out infinite;
+}
+@keyframes blob-drift-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-4%, 5%) scale(1.08); }
+}
+@keyframes blob-drift-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(5%, -4%) scale(1.06); }
+}
+
+/* Logo grande y difuminado detrás de la botella con la etiqueta Brinda. */
+.brand-watermark {
+  position: absolute;
+  top: 50%;
+  right: 6%;
+  width: min(60vw, 520px);
+  transform: translateY(-50%);
+  filter: blur(6px);
+  opacity: .14;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+@media (min-width: 960px) { .brand-watermark { right: -4%; width: min(30vw, 480px); } }
 
 .stage-grid {
   position: relative;
@@ -369,12 +488,18 @@ h1, h2, h3, h4 {
   font-family: var(--f-head);
   font-weight: 800;
   font-size: clamp(4.5rem, 18vw, 13rem);
-  color: var(--paper);
   letter-spacing: -0.02em;
   z-index: 0;
   white-space: nowrap;
   pointer-events: none;
   user-select: none;
+  background-image: linear-gradient(120deg, var(--celeste-100) 0%, var(--celeste-agua) 50%, var(--azul-medio) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  opacity: .6;
+  will-change: transform;
 }
 @media (min-width: 960px) { .hero-word { left: 4%; transform: translate(0,-50%); } }
 
@@ -397,8 +522,10 @@ h1, h2, h3, h4 {
 .float-card {
   position: absolute;
   width: min(78vw, 250px);
-  background: var(--white);
-  border: 1px solid var(--line);
+  background: rgba(255,255,255,.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(127,212,239,.55);
   padding: 1.1rem 1.2rem;
   opacity: 0;
   transform: translateY(24px);
@@ -408,10 +535,14 @@ h1, h2, h3, h4 {
   font-family: var(--f-head);
   font-size: .72rem;
   font-weight: 700;
-  color: var(--navy);
   letter-spacing: .08em;
   display: block;
   margin-bottom: .4rem;
+  background-image: linear-gradient(90deg, var(--navy), var(--azul-profundo));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 .float-card h4 {
   font-size: 1rem;
@@ -455,6 +586,15 @@ h1, h2, h3, h4 {
 }
 .phrase::before { content: "“"; color: var(--navy); }
 .phrase::after { content: "”"; color: var(--navy); }
+
+.hl-word {
+  font-weight: 700;
+  background-image: linear-gradient(90deg, var(--navy), var(--azul-profundo));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
 .ph-1 { top: 14%; left: 3%; text-align: left; }
 .ph-2 { top: 12%; right: 3%; text-align: right; }
 .ph-3 { bottom: 16%; left: 4%; text-align: left; }
@@ -483,7 +623,13 @@ h1, h2, h3, h4 {
   max-width: 26ch;
   margin: 0 auto;
 }
-.persona-close .hl { color: var(--navy); border-bottom: 4px solid var(--teal); }
+.persona-close .hl {
+  background-image: linear-gradient(90deg, var(--navy), var(--azul-profundo));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
 
 .scroll-hint {
   position: absolute;
@@ -566,9 +712,14 @@ h1, h2, h3, h4 {
 .section {
   padding: clamp(4rem, 9vw, 7.5rem) 0;
   position: relative;
+  background: linear-gradient(180deg, var(--celeste-100) 0%, #C3E4F5 100%);
+  overflow: hidden;
 }
-.section--paper { background: var(--paper); }
-.section--navy { background: var(--navy); color: var(--white); }
+.section--paper { background: linear-gradient(180deg, #C3E4F5 0%, #9CCEEA 100%); }
+.section--navy {
+  background: linear-gradient(180deg, var(--azul-profundo) 0%, var(--navy) 45%);
+  color: var(--white);
+}
 
 .section-head {
   display: grid;
@@ -674,6 +825,8 @@ h1, h2, h3, h4 {
 }
 @media (min-width: 860px) { .plans-grid { grid-template-columns: repeat(3, 1fr); } }
 
+.plans-cta { margin-top: clamp(2rem, 5vw, 3rem); text-align: center; }
+
 .plan-card {
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -683,7 +836,21 @@ h1, h2, h3, h4 {
   gap: 1rem;
   position: relative;
 }
-.plan-card.is-featured { background: var(--navy); color: var(--white); }
+.plan-card.is-featured {
+  color: var(--white);
+  border: 3px solid transparent;
+  background-image:
+    linear-gradient(var(--navy), var(--navy)),
+    linear-gradient(120deg, var(--azul-profundo), var(--celeste-agua), var(--azul-medio), var(--azul-profundo));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  background-size: 100% 100%, 300% 300%;
+  animation: plan-border-flow 7s linear infinite;
+}
+@keyframes plan-border-flow {
+  0% { background-position: 0 0, 0% 50%; }
+  100% { background-position: 0 0, 300% 50%; }
+}
 .plan-card.is-featured .plan-desc { color: rgba(255,255,255,.7); }
 .plan-card.is-featured .plan-from { color: rgba(255,255,255,.55); }
 .plan-card.is-featured ul li { border-top-color: rgba(255,255,255,.14); }
@@ -839,8 +1006,8 @@ h1, h2, h3, h4 {
   transition: border-color .2s var(--ease), background .2s var(--ease);
 }
 .on-dark .direct-contact a { border-color: rgba(255,255,255,.18); }
-.direct-contact a:hover { background: var(--paper); border-color: var(--navy); }
-.on-dark .direct-contact a:hover { background: rgba(255,255,255,.06); border-color: var(--white); }
+.direct-contact a:hover { background: var(--celeste-50); border-color: var(--azul-medio); }
+.on-dark .direct-contact a:hover { background: rgba(127,212,239,.1); border-color: var(--celeste-agua); }
 .direct-contact .ic {
   width: 36px; height: 36px;
   display: flex; align-items: center; justify-content: center;
@@ -897,6 +1064,15 @@ h1, h2, h3, h4 {
   transition: opacity .7s var(--ease), transform .7s var(--ease);
 }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* Entrada en diagonal con un leve rebote, para tarjetas/ítems en vez
+   de un fade plano. */
+.reveal-bounce {
+  transform: translate(-18px, 26px) scale(.96);
+  transition-timing-function: var(--ease-bounce);
+  transition-duration: .8s;
+}
+.reveal-bounce.is-visible { transform: translate(0, 0) scale(1); }
 .reveal-stagger > * { transition-delay: calc(var(--i, 0) * 80ms); }
 
 .skip-link {
