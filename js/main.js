@@ -80,9 +80,14 @@
   if (hasGsap && !reduceMotion) {
     gsap.registerPlugin(ScrollTrigger);
 
-    /* ---- Stage 1: Hero + Formato ---- */
+    /* ---- Stage 1: Hero + Formato ----
+       En modo 3D (window.__use3D), js/formato3d.js es dueño de todo lo
+       que pasa dentro de esta stage (botella, beneficios, etiqueta,
+       cierre) porque cambia la duración/estructura del recorrido.
+       Acá solo montamos el stage clásico (PNG, 4 tarjetas, rotación
+       CSS) cuando ese módulo no corre. */
     var stage1 = document.getElementById("formato");
-    if (stage1) {
+    if (stage1 && !window.__use3D) {
       var heroCopy = document.getElementById("hero-copy");
       var heroInk = document.getElementById("hero-ink");
       var heroWord = document.getElementById("hero-word");
@@ -180,7 +185,7 @@
         onUpdate: function (self) {
           var p = self.progress;
 
-          var starts = [0.06, 0.16, 0.55, 0.65];
+          var starts = [0.08, 0.32, 0.56];
           phraseSetters.forEach(function (s, i) {
             var inP = mapRange(p, starts[i], starts[i] + 0.1);
             var outP = 1 - mapRange(p, 0.8, 0.9);

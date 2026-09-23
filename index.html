@@ -18,6 +18,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
+<script>
+  // Se decide UNA vez, antes de que corra cualquier otro script, si la
+  // experiencia 3D corre o si nos quedamos en el fallback PNG ya
+  // probado. main.js y js/formato3d.js leen esta MISMA bandera para
+  // no pisarse (evita que ambos armen su propio ScrollTrigger sobre
+  // #formato).
+  (function () {
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var webgl = false;
+    try {
+      var c = document.createElement("canvas");
+      webgl = !!(window.WebGLRenderingContext && (c.getContext("webgl2") || c.getContext("webgl")));
+    } catch (e) { webgl = false; }
+    window.__use3D = webgl && !reduceMotion;
+  })();
+</script>
 </head>
 <body>
 
@@ -148,10 +164,9 @@
       </div>
 
       <div class="phrase-field" id="phrase-field">
-        <p class="phrase ph-1">La publicidad está en todos lados. Esta vez, alguien me dio algo.</p>
-        <p class="phrase ph-2">No me interrumpió. <span class="hl-word">Me regaló</span> agua.</p>
-        <p class="phrase ph-3">Che, esta marca me <span class="hl-word">regaló</span> algo.</p>
-        <p class="phrase ph-4">Una cuadra, dos, tres… y la botella <span class="hl-word">sigue en mi mano</span>.</p>
+        <p class="phrase ph-1">La gente está <span class="hl-word">saturada</span> de publicidad. La ve todo el día, en todos lados, y aprendió a ignorarla.</p>
+        <p class="phrase ph-2">Brinda da vuelta la lógica: en vez de interrumpir, la marca <span class="hl-word">entrega algo real y gratis</span>.</p>
+        <p class="phrase ph-3">El resultado es un cambio de percepción: la persona asocia tu marca con un <span class="hl-word">gesto de valor</span>, no con otro anuncio más.</p>
       </div>
 
       <div class="persona-close" id="persona-close">
@@ -423,5 +438,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="js/main.js"></script>
+<script type="module" src="js/formato3d.js"></script>
 </body>
 </html>
